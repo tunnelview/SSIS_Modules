@@ -1,0 +1,955 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/17/2024 3:01:54 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-RC4C5PQ"
+  DTS:CreatorName="DESKTOP-RC4C5PQ\Mypc"
+  DTS:DTSID="{F8485EE2-8C3D-484F-8999-F9C598C67CD1}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5314.0"
+  DTS:LocaleID="3081"
+  DTS:ObjectName="Module5_Presentation_Foreachloop"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{DDC5166E-8BA9-419C-8E7A-7356CE36F5E6}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-RC4C5PQ\SQL2022.ssis]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{06FD1EFA-52C5-47A8-8D72-5DDD68FDFCA8}"
+      DTS:ObjectName="DESKTOP-RC4C5PQ\SQL2022.ssis">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-RC4C5PQ\SQL2022;Initial Catalog=ssis;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Module5_Presentation_Foreachloop-{06FD1EFA-52C5-47A8-8D72-5DDD68FDFCA8}DESKTOP-RC4C5PQ\SQL2022.ssis;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:Description="This connection manager gets data from sql server and stores into a csv"
+      DTS:DTSID="{232B713F-A303-40C5-9E71-086715B5E204}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::FolderPath] + "SalesOrderDetail_"+ @[User::OrderQuantity] +".csv"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="3081"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\Mypc\Desktop\SSIS_Source\example\Output\Foreachloopinputfiles\SalesOrderDetail_.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SalesOrderID"
+              DTS:DTSID="{89409A93-A957-46C3-A96D-F77511EB6D13}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SalesOrderDetailID"
+              DTS:DTSID="{BE9D2189-766F-45C8-BA7E-88B36F3FC57E}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="CarrierTrackingNumber"
+              DTS:DTSID="{20802F12-1E46-4FAE-B1F2-25655A63B4D7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="OrderQty"
+              DTS:DTSID="{1A48BE00-1DAE-46C3-A36A-80D0049F3FBC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ProductID"
+              DTS:DTSID="{592F4269-F74D-402A-8691-5F36B14B4105}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SpecialOfferID"
+              DTS:DTSID="{AC21F874-0625-4C34-B679-0C8003E9952C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="UnitPrice"
+              DTS:DTSID="{DFCA0E74-39EB-4F87-8F2A-9C529E422264}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="UnitPriceDiscount"
+              DTS:DTSID="{E40AD97B-7267-4629-849A-3F5C645850C5}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LineTotal"
+              DTS:DTSID="{4FB3D4F4-19CA-494B-AFDB-06E8FB63192C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="rowguid"
+              DTS:DTSID="{11BB3C24-5E75-43C3-9C08-CBACB53C7E74}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ModifiedDate"
+              DTS:DTSID="{75A43CE0-BC3C-4B9D-B733-4D16EB10848D}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6B2B53FC-86E3-4FA9-AAC3-C0DE1A6ABC56}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FolderPath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\Mypc\Desktop\SSIS_Source\example\Output\Foreachloopinputfiles\</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{6D03BC44-4E8C-490F-9A9D-89D7C7F0CD2C}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="getdatafromsqlserver_obj">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{EDDE925C-0C8A-4485-B3AD-C056CBD21AD3}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="OrderQuantity">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{2DBD15C3-D14F-4E85-B613-9671902E5337}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{06FD1EFA-52C5-47A8-8D72-5DDD68FDFCA8}"
+          SQLTask:SqlStatementSource="select  distinct orderqty from [dbo].[Sales_Order_Details_SSIS]&#xA;order by  orderqty desc "
+          SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::getdatafromsqlserver_obj" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{9D5F1131-467B-4550-88DA-1ACEF05D48E6}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachADOEnumerator"
+        DTS:DTSID="{7FAD2E38-AB25-48CB-81BE-D92BA4764765}"
+        DTS:ObjectName="{7FAD2E38-AB25-48CB-81BE-D92BA4764765}">
+        <DTS:ObjectData>
+          <FEEADO
+            EnumType="EnumerateRowsInFirstTable"
+            VarName="User::getdatafromsqlserver_obj" />
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{EB4E66B8-66F2-475F-AEA9-F097EA7A7683}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination"
+                  componentClassID="Microsoft.FlatFileDestination"
+                  contactInfo="Flat File Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Destination"
+                  localeId="3081"
+                  name="Flat File Destination"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether the data will overwrite or append to the destination file."
+                      name="Overwrite">true</property>
+                    <property
+                      dataType="System.Null"
+                      description="Specifies the text to write to the destination file before any data is written."
+                      expressionType="Notify"
+                      name="Header" />
+                    <property
+                      dataType="System.Boolean"
+                      description="When text qualifier is enabled, specifies whether the text qualifier in the data written to the destination file will be escaped or not."
+                      name="EscapeQualifier">false</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input]"
+                      hasSideEffects="true"
+                      name="Flat File Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[SalesOrderID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="SalesOrderID"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SalesOrderID]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderID]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[SalesOrderDetailID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="SalesOrderDetailID"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SalesOrderDetailID]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderDetailID]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[CarrierTrackingNumber]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="CarrierTrackingNumber"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CarrierTrackingNumber]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CarrierTrackingNumber]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[OrderQty]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="OrderQty"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OrderQty]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderQty]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[ProductID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="ProductID"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ProductID]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductID]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[SpecialOfferID]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="SpecialOfferID"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SpecialOfferID]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[SpecialOfferID]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[UnitPrice]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="UnitPrice"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[UnitPrice]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPrice]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[UnitPriceDiscount]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="UnitPriceDiscount"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[UnitPriceDiscount]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPriceDiscount]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[LineTotal]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="LineTotal"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[LineTotal]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LineTotal]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[rowguid]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="rowguid"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[rowguid]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[rowguid]" />
+                        <inputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].Columns[ModifiedDate]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="50"
+                          cachedName="ModifiedDate"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ModifiedDate]"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SalesOrderID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="SalesOrderID" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SalesOrderDetailID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="SalesOrderDetailID" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[CarrierTrackingNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="CarrierTrackingNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[OrderQty]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="OrderQty" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ProductID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ProductID" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[SpecialOfferID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="SpecialOfferID" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[UnitPrice]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="UnitPrice" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[UnitPriceDiscount]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="UnitPriceDiscount" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[LineTotal]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="LineTotal" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[rowguid]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="rowguid" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input].ExternalColumns[ModifiedDate]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ModifiedDate" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                </component>
+                <component
+                  refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source"
+                  componentClassID="Microsoft.OLEDBSource"
+                  contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+                  description="OLE DB Source"
+                  name="OLE DB Source"
+                  usesDispositions="true"
+                  version="7">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset"></property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select  * from [dbo].[Sales_Order_Details_SSIS]
+where orderqty = ?</property>
+                    <property
+                      dataType="System.String"
+                      description="The variable that contains the SQL command to be executed."
+                      name="SqlCommandVariable"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">2</property>
+                    <property
+                      dataType="System.String"
+                      description="The mappings between the parameters in the SQL command and variables."
+                      name="ParameterMapping">"Parameter0:Input",{EDDE925C-0C8A-4485-B3AD-C056CBD21AD3};</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[DESKTOP-RC4C5PQ\SQL2022.ssis]"
+                      connectionManagerRefId="Package.ConnectionManagers[DESKTOP-RC4C5PQ\SQL2022.ssis]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]"
+                      name="OLE DB Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderID]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderID]"
+                          name="SalesOrderID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderDetailID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderDetailID]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[SalesOrderDetailID]"
+                          name="SalesOrderDetailID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CarrierTrackingNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CarrierTrackingNumber]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[CarrierTrackingNumber]"
+                          name="CarrierTrackingNumber"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderQty]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OrderQty]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[OrderQty]"
+                          name="OrderQty"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductID]"
+                          name="ProductID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[SpecialOfferID]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SpecialOfferID]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[SpecialOfferID]"
+                          name="SpecialOfferID"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPrice]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UnitPrice]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPrice]"
+                          name="UnitPrice"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPriceDiscount]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UnitPriceDiscount]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[UnitPriceDiscount]"
+                          name="UnitPriceDiscount"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LineTotal]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LineTotal]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[LineTotal]"
+                          name="LineTotal"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[rowguid]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rowguid]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[rowguid]"
+                          name="rowguid"
+                          truncationRowDisposition="FailComponent" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                          codePage="1252"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                          name="ModifiedDate"
+                          truncationRowDisposition="FailComponent" />
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="SalesOrderID" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SalesOrderDetailID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="SalesOrderDetailID" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[CarrierTrackingNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="CarrierTrackingNumber" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[OrderQty]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="OrderQty" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ProductID" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SpecialOfferID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="SpecialOfferID" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UnitPrice]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="UnitPrice" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[UnitPriceDiscount]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="UnitPriceDiscount" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[LineTotal]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="LineTotal" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[rowguid]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="rowguid" />
+                        <externalMetadataColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          name="ModifiedDate" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                      isErrorOut="true"
+                      name="OLE DB Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrderID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrderID]"
+                          name="SalesOrderID" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrderDetailID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SalesOrderDetailID]"
+                          name="SalesOrderDetailID" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CarrierTrackingNumber]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[CarrierTrackingNumber]"
+                          name="CarrierTrackingNumber" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OrderQty]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[OrderQty]"
+                          name="OrderQty" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductID]"
+                          name="ProductID" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SpecialOfferID]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[SpecialOfferID]"
+                          name="SpecialOfferID" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UnitPrice]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UnitPrice]"
+                          name="UnitPrice" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UnitPriceDiscount]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[UnitPriceDiscount]"
+                          name="UnitPriceDiscount" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LineTotal]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[LineTotal]"
+                          name="LineTotal" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rowguid]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[rowguid]"
+                          name="rowguid" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                          codePage="1252"
+                          dataType="str"
+                          length="50"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                          name="ModifiedDate" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+              <paths>
+                <path
+                  refId="Package\Foreach Loop Container\Data Flow Task.Paths[OLE DB Source Output]"
+                  endId="Package\Foreach Loop Container\Data Flow Task\Flat File Destination.Inputs[Flat File Destination Input]"
+                  name="OLE DB Source Output"
+                  startId="Package\Foreach Loop Container\Data Flow Task\OLE DB Source.Outputs[OLE DB Source Output]" />
+              </paths>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{9313B2B1-ECA0-4035-BFF7-630C372BC452}"
+          DTS:ObjectName="{9313B2B1-ECA0-4035-BFF7-630C372BC452}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::OrderQuantity" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{A692B359-5114-4B38-80B2-CB9BF7635232}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Foreach Loop Container" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="155,42"
+          Id="Package\Foreach Loop Container\Data Flow Task"
+          TopLeft="32,52" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="205,192"
+          Size="205,235"
+          Id="Package\Foreach Loop Container"
+          TopLeft="505,61" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Execute SQL Task"
+          TopLeft="172,27" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="342,48">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="163,130.5"
+              Start="0,0"
+              End="155.5,130.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="77.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="77.5,0"
+                    Point2="81.5,0"
+                    Point3="81.5,4" />
+                  <mssgle:LineSegment
+                    End="81.5,126.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="81.5,126.5"
+                    Point2="81.5,130.5"
+                    Point3="85.5,130.5" />
+                  <mssgle:LineSegment
+                    End="155.5,130.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Foreach Loop Container\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Foreach Loop Container\Data Flow Task\OLE DB Source"
+          TopLeft="284,21" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Foreach Loop Container\Data Flow Task\Flat File Destination"
+          TopLeft="364,211" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container\Data Flow Task.Paths[OLE DB Source Output]"
+          TopLeft="362.5,63">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="89.5,148"
+              Start="0,0"
+              End="89.5,140.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,70" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,70"
+                    Point2="0,74"
+                    Point3="4,74" />
+                  <mssgle:LineSegment
+                    End="85.5,74" />
+                  <mssgle:CubicBezierSegment
+                    Point1="85.5,74"
+                    Point2="89.5,74"
+                    Point3="89.5,78" />
+                  <mssgle:LineSegment
+                    End="89.5,140.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Foreach Loop Container\Data Flow Task\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

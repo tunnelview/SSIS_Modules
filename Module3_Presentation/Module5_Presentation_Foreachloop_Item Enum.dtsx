@@ -1,0 +1,289 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/19/2024 8:43:31 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-RC4C5PQ"
+  DTS:CreatorName="DESKTOP-RC4C5PQ\Mypc"
+  DTS:DTSID="{CEDC8BC6-3642-4BF9-B343-98E2305EE8BD}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5314.0"
+  DTS:LocaleID="3081"
+  DTS:ObjectName="Module5_Presentation_Foreachloop_Item Enum"
+  DTS:PackageType="5"
+  DTS:VersionBuild="20"
+  DTS:VersionGUID="{783EAFCD-1EF0-42D0-9520-7352A6526B79}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4EBF55AE-EE2F-470B-9267-F72D7C851BF4}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Destination_Path">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\Mypc\Desktop\SSIS_Source\example\Output\Foreachloopinputfiles\Feb</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{91E378E4-AE10-492B-8674-B5F45AD81635}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="File_Path">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\Mypc\Desktop\SSIS_Source\example\Output\Foreachloopinputfiles\Archive\SalesOrderDetail_1.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F5C3C830-3FF0-4FF6-8F12-54F50C4A38EF}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[User::ParentFolderPath]+ &quot;\\&quot;+ @[User::FolderName]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Final_Folder_Path">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\Mypc\Desktop\SSIS_Source\example\Output\Foreachloopinputfiles\Jan</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A2916300-BF44-402F-B856-FFA68E49994E}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FolderName">
+      <DTS:VariableValue
+        DTS:DataType="8">Jan</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{30D2C570-D282-475A-8758-C0D2C9B352A8}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="ParentFolderPath">
+      <DTS:VariableValue
+        DTS:DataType="8">C:\Users\Mypc\Desktop\SSIS_Source\example\Output\Foreachloopinputfiles</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:Disabled="True"
+      DTS:DTSID="{B11903DC-A9F4-40B3-A36F-F6F202472155}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachItemEnumerator"
+        DTS:DTSID="{36D632BB-015A-4D71-A874-CA07B3AA0FBC}"
+        DTS:ObjectName="{36D632BB-015A-4D71-A874-CA07B3AA0FBC}">
+        <DTS:ObjectData>
+          <FEIEItems>
+            <FEIEItem>
+              <FEIEItemValue
+                Type="8"
+                Value="Jan" />
+            </FEIEItem>
+            <FEIEItem>
+              <FEIEItemValue
+                Type="8"
+                Value="Feb" />
+            </FEIEItem>
+            <FEIEItem>
+              <FEIEItemValue
+                Type="8"
+                Value="Mar" />
+            </FEIEItem>
+            <FEIEItem>
+              <FEIEItemValue
+                Type="8"
+                Value="Apr" />
+            </FEIEItem>
+            <FEIEItem>
+              <FEIEItemValue
+                Type="8"
+                Value="May" />
+            </FEIEItem>
+            <FEIEItem>
+              <FEIEItemValue
+                Type="8"
+                Value="Jun" />
+            </FEIEItem>
+          </FEIEItems>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\File System Task"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{D03B81F3-69BC-4A28-9811-93450C83F7D5}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="File System Task"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="CreateDirectory"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::Final_Folder_Path"
+              TaskIsSourceVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{2365C983-B4FC-45C0-B466-24C0F441BEBE}"
+          DTS:ObjectName="{2365C983-B4FC-45C0-B466-24C0F441BEBE}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::FolderName" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container 1"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:Disabled="True"
+      DTS:DTSID="{CAD4B999-C6A3-4FBB-B530-360C3C86DB84}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container 1">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachFileEnumerator"
+        DTS:DTSID="{A027B90A-8B56-4343-B95F-D05F4C8D16A5}"
+        DTS:ObjectName="{A027B90A-8B56-4343-B95F-D05F4C8D16A5}">
+        <DTS:ObjectData>
+          <ForEachFileEnumeratorProperties>
+            <FEFEProperty
+              Folder="C:\Users\Mypc\Desktop\SSIS_Source\example\Output\Foreachloopinputfiles\Archive" />
+            <FEFEProperty
+              FileSpec="*.csv*" />
+            <FEFEProperty
+              FileNameRetrievalType="0" />
+            <FEFEProperty
+              Recurse="0" />
+          </ForEachFileEnumeratorProperties>
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container 1\File System Task"
+          DTS:CreationName="Microsoft.FileSystemTask"
+          DTS:Description="File System Task"
+          DTS:DTSID="{114C58F3-66AB-469C-88DE-91A71BB787A3}"
+          DTS:ExecutableType="Microsoft.FileSystemTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="File System Task"
+          DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <FileSystemData
+              TaskOperationType="MoveFile"
+              TaskOverwriteDestFile="True"
+              TaskSourcePath="User::File_Path"
+              TaskIsSourceVariable="True"
+              TaskDestinationPath="User::Destination_Path"
+              TaskIsDestinationVariable="True" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{3ADD9518-2D5E-48C3-B778-A65B9A57F68E}"
+          DTS:ObjectName="{3ADD9518-2D5E-48C3-B778-A65B9A57F68E}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::File_Path" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{C7B78433-0517-43A5-92FF-BB30E6A70F40}"
+      DTS:From="Package\Foreach Loop Container"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Foreach Loop Container 1" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Foreach Loop Container\File System Task"
+          TopLeft="41,25" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="272,159"
+          Size="272,202"
+          Id="Package\Foreach Loop Container"
+          TopLeft="137,29" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Foreach Loop Container 1\File System Task"
+          TopLeft="64,39" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="298,149"
+          Size="298,192"
+          Id="Package\Foreach Loop Container 1"
+          TopLeft="635,72" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="409,130">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="226,38"
+              Start="0,0"
+              End="218.5,38">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="109,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="109,0"
+                    Point2="113,0"
+                    Point3="113,4" />
+                  <mssgle:LineSegment
+                    End="113,34" />
+                  <mssgle:CubicBezierSegment
+                    Point1="113,34"
+                    Point2="113,38"
+                    Point3="117,38" />
+                  <mssgle:LineSegment
+                    End="218.5,38" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
